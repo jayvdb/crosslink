@@ -1,4 +1,4 @@
-from utils import *
+from crosslink.utils import *
 
 
 class Identifier(object):

@@ -104,7 +104,10 @@ class KeybaseService(Service):
                     return None
 
                 assert 'them' in data
-                assert len(data['them']) >= 1
+                if not data['them']:
+                    return None
+
+                assert len(data['them']) == 1
 
                 entry = data['them'][0]
 

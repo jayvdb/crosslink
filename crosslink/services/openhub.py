@@ -66,10 +66,10 @@ class OpenHubIdentity(Identity):
 
         gravatar_prefix, gravatar_hash = avatar_url.split('=', 1)
         assert gravatar_prefix == 'http://www.gravatar.com/avatar.php?gravatar_id'
-        account = Account('Gravatar', GravatarMD5Hash(gravatar_hash))
+        account = Account('gravatar', GravatarMD5Hash(gravatar_hash))
         self.emails.append(VerifiedAccount(account, provider))
 
-        self.emails.append(SHA1(email_sha1))
+        self.emails.append(EmailSHA1(email_sha1))
 
         self._posts_count = posts_count
         self._country_code = country_code
